@@ -15,3 +15,5 @@ else
     docker build -t debirf-builder .
     shasum Dockerfile | cut -d ' ' -f 1 > .Dockerfile.sha1
 fi
+
+docker run --rm -t --net=host -v "$PWD":/debirf debirf-builder bash -c "cp -r /debirf /tmp && cd /tmp/debirf && make image"
