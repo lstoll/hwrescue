@@ -2,3 +2,4 @@
 /.Dockerfile.sha1
 /*.cgz
 /vmlinuz*
+/*.iso
