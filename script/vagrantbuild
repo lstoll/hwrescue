@@ -1,0 +1,9 @@
+#!/bin/bash
+
+rm -r /tmp/debirf
+mkdir -p /tmp/debirf
+
+export DEBIRF_MIRROR=http://localhost:3142/ubuntu
+export DEBIRF_BUILDD=/tmp/debirf
+
+./script/build
