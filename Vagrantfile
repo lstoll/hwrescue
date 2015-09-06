@@ -45,16 +45,5 @@ if [ "$[$(date +%s) - $(stat -c %Z /var/lib/apt/periodic/update-success-stamp)]"
 fi
 
 apt-get install -y apt-cacher-ng debirf
-
-if [ ! -f /usr/bin/docker ]; then
-    wget -qO- https://get.docker.com/ | sh
-    usermod -aG docker vagrant
-    # Because dkms and kernel updates and don't ask plesae
-    for ver in $(ls /boot/vmlinuz-* | awk -F"-" '{ st = index($0,"-");print substr($0,st+1)}'); do
-        apt-get install -y linux-headers-${ver}
-    done
-    echo "YOU'RE PROBABLY GONNA NEED TO VAGRANT RELOAD OR SHIT WILL BE JANK"
-    /sbin/reboot
-fi
 EOF
 end
