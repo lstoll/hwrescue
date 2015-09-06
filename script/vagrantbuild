@@ -7,3 +7,6 @@ rm -r $DEBIRF_BUILDD
 mkdir -p $DEBIRF_BUILDD
 
 ./script/build
+
+cp $DEBIRF_BUILDD/*.cgz .
+cp $DEBIRF_BUILDD/vmlinuz* .
