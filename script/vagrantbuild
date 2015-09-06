@@ -3,10 +3,8 @@
 export DEBIRF_MIRROR=http://localhost:3142/ubuntu
 export DEBIRF_BUILDD=$HOME/debirf_build
 
-rm -r $DEBIRF_BUILDD
-mkdir -p $DEBIRF_BUILDD
-
 ./script/build
 
 cp $DEBIRF_BUILDD/*.cgz .
 cp $DEBIRF_BUILDD/vmlinuz* .
+cp $DEBIRF_BUILDD/*.iso .
