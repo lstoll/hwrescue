@@ -1,2 +1,4 @@
 /.vagrant
 /.Dockerfile.sha1
+/*.cgz
+/vmlinuz*
