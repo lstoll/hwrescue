@@ -1,4 +1,6 @@
 #!/bin/bash
 
+set -e
+
 debirf make rescue
 debirf makeiso rescue
