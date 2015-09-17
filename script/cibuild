@@ -2,18 +2,6 @@
 
 set -e
 
-if [ -f .Dockerfile.sha1 ]; then
-    DF_SHA=$(cat .Dockerfile.sha1)
-else
-    DF_SHA=''
-fi
+sudo apt-get install -qy debirf
 
-if docker images | grep debirf-builder > /dev/null && [ "$DF_SHA" == "$(shasum Dockerfile | cut -d ' ' -f 1)" ]; then
-    echo '--> Dockerfile container exists and is unmodified from last build, skipping'
-else
-    echo '--> Building docker container'
-    docker build -t debirf-builder .
-    shasum Dockerfile | cut -d ' ' -f 1 > .Dockerfile.sha1
-fi
-
-docker run --rm -t --net=host -v "$PWD":/debirf debirf-builder bash -c "cp -r /debirf /tmp && cd /tmp/debirf && make image"
+./script/build
