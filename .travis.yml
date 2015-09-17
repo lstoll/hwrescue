@@ -13,4 +13,4 @@ deploy:
   acl: public_read
   on:
     repo: lstoll/hwrescue
-    branch: master
+    branch: make_deploy_work
