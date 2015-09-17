@@ -24,9 +24,11 @@ ls -la $DEBBIRF_BUILDD
 echo "--> Building image"
 ./script/build
 
-echo "--> Copying artifacts to output directory"
+echo "--> Renaming and copying artifacts to output directory"
 mkdir -p out
-cp -v $DEBIRF_BUILDD/*.cgz $DEBIRF_BUILDD/vmlinuz* $DEBIRF_BUILDD/*.iso out/
+cp -v $DEBIRF_BUILDD/*.cgz out/initrd.cgz
+cp -v $DEBIRF_BUILDD/vmlinuz* out/vmlinuz
+cp -v $DEBIRF_BUILDD/*.iso out/image.iso
 
 echo "--> The following files were generated"
 ls -l out
