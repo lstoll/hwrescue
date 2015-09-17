@@ -19,7 +19,7 @@ mkdir -p $DEBIRF_BUILDD $DEBIRF_OUT
 sudo chown debirf $DEBIRF_BUILDD $DEBIRF_OUT
 
 echo "--> Building image"
-sudo -E -u debirf ./script/build
+sudo -u sh -c "DEBIRF_BUILDD=$DEBIRF_BUILDD debirf ./script/build"
 
 echo "--> Copying artifacts to output directory"
 cp -v $DEBIRF_BUILDD/*.cgz $DEBIRF_BUILDD/vmlinuz* $DEBIRF_BUILDD/*.iso $DEBIRF_OUT
