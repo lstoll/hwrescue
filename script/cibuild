@@ -13,7 +13,7 @@ echo "--> Setting up non-privileged user to build as"
 sudo useradd debirf
 
 echo "--> Setting up working directories"
-export DEBIRF_BUILDD="${TMPDIR}/debirf_build/"
+export DEBIRF_BUILDD="/tmp/debirf_build"
 echo "DEBBIRF_BUILDD is ${DEBIRF_BUILDD}"
 mkdir -p $DEBIRF_BUILDD
 sudo chown debirf $DEBIRF_BUILDD
