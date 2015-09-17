@@ -9,6 +9,10 @@ sudo apt-get update > /dev/null
 echo "--> Installing dependencies"
 sudo apt-get install -qqy debirf > /dev/null
 
+echo "--> Fetching and nstalling updated debirf"
+curl -qLo /tmp/debirf.deb  https://launchpad.net/ubuntu/+archive/primary/+files/debirf_0.35_all.deb
+dpkg -i /tmp/debirf.deb
+
 echo "--> Setting up non-privileged user to build as"
 sudo useradd debirf
 
