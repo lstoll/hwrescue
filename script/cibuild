@@ -7,7 +7,7 @@ sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc)
 sudo apt-get update > /dev/null
 
 echo "--> Installing dependencies"
-sudo apt-get install -qqy debirf
+sudo apt-get install -qqy debirf > /dev/null
 
 echo "--> Setting up non-privileged user to build as"
 sudo useradd debirf
