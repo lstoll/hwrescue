@@ -16,10 +16,10 @@ echo "--> Setting up working directories"
 export DEBIRF_BUILDD=$TRAVIS_BUILD_DIR/debirf_build
 export DEBIRF_OUT=$TRAVIS_BUILD_DIR/out
 mkdir -p $DEBIRF_BUILDD $DEBIRF_OUT
-sudo chown debirf $DEBIRF_BUILDD $DEBIRF_OUT rescue
+sudo chown debirf $DEBIRF_BUILDD $DEBIRF_OUT
 
 echo "--> Building image"
-sudo -u debirf ./script/build
+sudo -E -u debirf ./script/build
 
 echo "--> Copying artifacts to output directory"
 cp -v $DEBIRF_BUILDD/*.cgz $DEBIRF_BUILDD/vmlinuz* $DEBIRF_BUILDD/*.iso $DEBIRF_OUT
