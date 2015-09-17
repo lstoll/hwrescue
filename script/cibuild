@@ -31,6 +31,7 @@ echo "--> Building image"
 sudo -u debirf sh -c "DEBIRF_BUILDD=$DEBIRF_BUILDD ./script/build"
 
 echo "--> Copying artifacts to output directory"
+mkdir -p out
 cp -v $DEBIRF_BUILDD/*.cgz $DEBIRF_BUILDD/vmlinuz* $DEBIRF_BUILDD/*.iso out/
 
 echo "--> The following files were generated"
