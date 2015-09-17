@@ -8,8 +8,8 @@ deploy:
   secret_access_key:
     secure: DNx/sb3ORZqEZAIrCiQKfQTxKriiI3Jji7mgsWsKPWjDKZo3ISWZYcdOljrY2OsHxuFBmzj9Grg+uDi8KRf/okFZXVuAtxfr6ME+bOIJ1Y4UORJr33CkkYm964i9tryTdoVeFqhlPL5j6++InTF3pAvGvKGzz/Lc4GfhDjNANHUcKUJt9/VZVInjba3nFfZELSZooy3/pR8Jb4HZU/URIb4BE0wGvr40cs995kNxlUZWORidoDsc8zMa1z4A3Z+bTEqvvjioprnydYwN/6V089pTThGuZd3kooKaFPkuwSAqvYfozowsXbt5y4vIPu8zhFrf8lAxUfxBUc/0bqS3tcqa+T0fF8mrDxyC4qoTcYq7g7oRof6vEhj7zRVcp/tG7Ww36b4cwNfT4pzTmSWnm+L45pJLSsnHmUGCWIi4M95kUtGd7M42hRi3+PMTPda5+YKq8I57I+Tsl/lmc9OMQ9F4D0ANQ5M3/7I6alTFcWhNKINsCJJGmiBJOfjAmF1QiMwFnukBGoaEWdCa1G3KmQ6rxJOe08prNS1GyAvCLFLbDW+mSl5i5YdeImvrrWRDKzlTyCLRwRS/FHPSwJC/pc+zyjZUoHg4oZ7MPlENHpgjXJdXKxKRoCpHw+3GGOzZzWTg/+CzjcWICiSvnP1JXwb3aQ+OkM5eoZYDxBwFxXI=
   bucket: s3.lstoll.net
-  local-dir: out
-  upload-dir: artifacts/hwrescue
+  local_dir: out
+  upload_dir: artifacts/hwrescue
   acl: public_read
   on:
     repo: lstoll/hwrescue
