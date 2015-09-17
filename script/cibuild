@@ -20,7 +20,12 @@ echo "DEBBIRF_OUT is ${DEBIRF_OUT}"
 mkdir -p $DEBIRF_BUILDD $DEBIRF_OUT
 sudo chown debirf $DEBIRF_BUILDD $DEBIRF_OUT
 
+echo "work dir is ${TRAVIS_BUILD_DIR}"
+ls -ls $TRAVIS_BUILD_DIR
+echo "build dir"
 ls -la $DEBBIRF_BUILDD
+echo "out dir"
+ls -la $DEBBIRF_OUT
 
 echo "--> Building image"
 sudo -u debirf sh -c "DEBIRF_BUILDD=$DEBIRF_BUILDD ./script/build"
