@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -e
+
+# Not sure if really needed, but doesn't hurt
+trap "VBoxManage unregistervm hwrescue_iso --delete; exit" INT TERM EXIT
+
+VBoxManage createvm --register --name hwrescue_iso --ostype Ubuntu_64
+VBoxManage modifyvm hwrescue_iso --memory 1024
+VBoxManage storagectl hwrescue_iso --add ide --name "IDE Controller"
+VBoxManage storageattach hwrescue_iso --storagectl "IDE Controller" --port 1 --device 0 --type dvddrive --medium `pwd`/`ls debirf*.iso`
+VBoxManage startvm hwrescue_iso
+
+sleep 5 # startup time
+
+while VBoxManage list runningvms | grep -q hwrescue_iso; do
+    sleep 2
+done
+exit 0

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+qemu-system-x86_64 -m 1024 -nographic -net nic -net user -kernel vmlinuz* -initrd *.cgz -append "console=ttyS0,115200n8"
