@@ -20,6 +20,8 @@ echo "DEBBIRF_OUT is ${DEBIRF_OUT}"
 mkdir -p $DEBIRF_BUILDD $DEBIRF_OUT
 sudo chown debirf $DEBIRF_BUILDD $DEBIRF_OUT
 
+ls $DEBBIRF_BUILDD
+
 echo "--> Building image"
 sudo -u debirf sh -c "DEBIRF_BUILDD=$DEBIRF_BUILDD ./script/build"
 
