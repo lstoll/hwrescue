@@ -25,8 +25,8 @@ echo "--> Building image"
 ./script/build
 
 echo "--> Copying artifacts to output directory"
-mkdir -p out
-cp -v $DEBIRF_BUILDD/*.cgz $DEBIRF_BUILDD/vmlinuz* $DEBIRF_BUILDD/*.iso out/
+mkdir -p /tmp/out
+cp -v $DEBIRF_BUILDD/*.cgz $DEBIRF_BUILDD/vmlinuz* $DEBIRF_BUILDD/*.iso /tmp/out/
 
 echo "--> The following files were generated"
-ls out/
+ls /tmp/out/
