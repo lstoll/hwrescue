@@ -1,10 +1,8 @@
-# Ready Image
+# Rescue Image
 
-This image wil be the default PXE boot target.
+[![Build Status](https://magnum.travis-ci.com/lstoll/hwrescue.svg?token=UhypCbZxcoMpXfTko3wu)](https://magnum.travis-ci.com/lstoll/hwrescue)
 
-It should be light enough to boot fast, but have enough of an OS to be useful.
-
-It should also serve a secondary purpose as a rescue and recovery image.
+This is a simple framework to build a PXE/iPXE bootable distibution containing the base essentials to interact with and repair a system. It is built using [debirf](http://cmrg.fifthhorseman.net/wiki/debirf)
 
 ## Development
 
@@ -12,6 +10,19 @@ A vagrant environment is provided, with the necessary tools and apt caching. Run
 
 ### Running the kernel/initrd with a serial console
 
-the `./script/kernel_run` command will launch the generated kernel and initrd inside qemu, with the console being emulated serial. Exit this with `C-a x`
+`./script/run_kernel_qemu` command will launch the generated kernel and initrd inside qemu, with the console being emulated serial. Exit this with `C-a x`
+
+*note* this doesn't correctly bring up a login prompt. Unsure if this is a serial bug or qemu issue right now
 
 ### Running the iso
+
+`./script/run_iso_virtualbox` will launch the ISO image inside virtualbox
+
+## Deployment
+
+changes on master will trigger a build, and upload artifacts. These can be retrieved from:
+
+kernel: http://cdn.lstoll.net/artifacts/hwrescue/vmlinuz
+initrd: http://cdn.lstoll.net/artifacts/hwrescue/initrd.cgz
+
+iso image: http://cdn.lstoll.net/artifacts/hwrescue/image.iso
