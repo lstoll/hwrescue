@@ -2,18 +2,31 @@
 
 set -e
 
-if [ -f .Dockerfile.sha1 ]; then
-    DF_SHA=$(cat .Dockerfile.sha1)
-else
-    DF_SHA=''
-fi
+echo "--> Adding all ubuntu repositories"
+sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe restricted multiverse"
+sudo apt-get update > /dev/null
 
-if docker images | grep debirf-builder > /dev/null && [ "$DF_SHA" == "$(shasum Dockerfile | cut -d ' ' -f 1)" ]; then
-    echo '--> Dockerfile container exists and is unmodified from last build, skipping'
-else
-    echo '--> Building docker container'
-    docker build -t debirf-builder .
-    shasum Dockerfile | cut -d ' ' -f 1 > .Dockerfile.sha1
-fi
+echo "--> Installing dependencies"
+sudo apt-get install -qqy debirf > /dev/null
 
-docker run --rm -t --net=host -v "$PWD":/debirf debirf-builder bash -c "cp -r /debirf /tmp && cd /tmp/debirf && make image"
+echo "--> Fetching and nstalling updated debirf"
+curl -qLo /tmp/debirf.deb  https://launchpad.net/ubuntu/+archive/primary/+files/debirf_0.35_all.deb
+sudo dpkg -i /tmp/debirf.deb
+
+echo "--> Setting up working directories"
+export DEBIRF_BUILDD="/tmp/debirf_build"
+echo "DEBBIRF_BUILDD is ${DEBIRF_BUILDD}"
+mkdir -p $DEBIRF_BUILDD
+
+echo "build dir"
+ls -la $DEBBIRF_BUILDD
+
+echo "--> Building image"
+./script/build
+
+echo "--> Copying artifacts to output directory"
+mkdir -p out
+cp -v $DEBIRF_BUILDD/*.cgz $DEBIRF_BUILDD/vmlinuz* $DEBIRF_BUILDD/*.iso out/
+
+echo "--> The following files were generated"
+ls out/
