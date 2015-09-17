@@ -7,7 +7,7 @@ sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc)
 sudo apt-get update > /dev/null
 
 echo "--> Installing dependencies"
-sudo apt-get install -qy debirf
+sudo apt-get install -qqy debirf
 
 echo "--> Setting up non-privileged user to build as"
 sudo useradd debirf
@@ -19,7 +19,7 @@ mkdir -p $DEBIRF_BUILDD $DEBIRF_OUT
 sudo chown debirf $DEBIRF_BUILDD $DEBIRF_OUT
 
 echo "--> Building image"
-sudo -u sh -c "DEBIRF_BUILDD=$DEBIRF_BUILDD debirf ./script/build"
+sudo -u debirf sh -c "DEBIRF_BUILDD=$DEBIRF_BUILDD debirf ./script/build"
 
 echo "--> Copying artifacts to output directory"
 cp -v $DEBIRF_BUILDD/*.cgz $DEBIRF_BUILDD/vmlinuz* $DEBIRF_BUILDD/*.iso $DEBIRF_OUT
