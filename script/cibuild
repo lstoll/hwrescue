@@ -14,7 +14,9 @@ sudo useradd debirf
 
 echo "--> Setting up working directories"
 export DEBIRF_BUILDD=$TRAVIS_BUILD_DIR/debirf_build
+echo "DEBBIRF_BUILDD is ${DEBIRF_BUILDD}"
 export DEBIRF_OUT=$TRAVIS_BUILD_DIR/out
+echo "DEBBIRF_OUT is ${DEBIRF_OUT}"
 mkdir -p $DEBIRF_BUILDD $DEBIRF_OUT
 sudo chown debirf $DEBIRF_BUILDD $DEBIRF_OUT
 
