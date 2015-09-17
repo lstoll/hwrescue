@@ -2,6 +2,11 @@
 
 set -e
 
+export DEBIRF_BUILDD=$$TRAVIS_BUILD_DIR/debirf_build
+export DEBIRF_OUT=$TRAVIS_BUILD_DIR/out
+mkdir -p $DEBIRF_BUILDD
+mkdir -p $DEBIRF_OUT
+
 echo "--> Adding all ubuntu repositories"
 sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe restricted multiverse"
 sudo apt-get update > /dev/null
@@ -11,3 +16,9 @@ sudo apt-get install -qy debirf
 
 echo "--> Building image"
 sudo ./script/build
+
+echo "--> Copying artifacts to output directory"
+cp -v $DEBIRF_BUILDD/*.cgz $DEBIRF_BUILDD/vmlinuz* $DEBIRF_BUILDD/*.iso $DEBIRF_OUT
+
+echo "--> The following files were generated"
+ls $DEBIRF_OUT/
