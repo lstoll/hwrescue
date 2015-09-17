@@ -4,6 +4,8 @@
 
 This is a simple framework to build a PXE/iPXE bootable distibution containing the base essentials to interact with and repair a system. It is built using [debirf](http://cmrg.fifthhorseman.net/wiki/debirf)
 
+The intention is for this project to also serve as or provide a base for the "ready" default image that audits hardware
+
 ## Development
 
 A vagrant environment is provided, with the necessary tools and apt caching. Run ./script/vagrantbuild in there
