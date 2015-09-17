@@ -14,4 +14,4 @@ deploy:
   skip_cleanup: true
   on:
     repo: lstoll/hwrescue
-    branch: make_deploy_work
+    branch: master
