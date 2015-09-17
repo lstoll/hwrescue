@@ -15,7 +15,7 @@ echo "--> Installing dependencies"
 sudo apt-get install -qy debirf
 
 echo "--> Building image"
-sudo ./script/build
+./script/build
 
 echo "--> Copying artifacts to output directory"
 cp -v $DEBIRF_BUILDD/*.cgz $DEBIRF_BUILDD/vmlinuz* $DEBIRF_BUILDD/*.iso $DEBIRF_OUT
