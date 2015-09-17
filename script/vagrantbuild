@@ -1,7 +1,11 @@
 #!/bin/bash
 
+set -e
+
 export DEBIRF_MIRROR=http://localhost:3142/ubuntu
 export DEBIRF_BUILDD=$HOME/debirf_build
+
+mkdir -p $DEBIRF_BUILDD
 
 ./script/build
 
