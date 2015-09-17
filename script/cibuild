@@ -13,22 +13,16 @@ echo "--> Fetching and nstalling updated debirf"
 curl -qLo /tmp/debirf.deb  https://launchpad.net/ubuntu/+archive/primary/+files/debirf_0.35_all.deb
 sudo dpkg -i /tmp/debirf.deb
 
-whoami
-
-echo "--> Setting up non-privileged user to build as"
-sudo useradd debirf
-
 echo "--> Setting up working directories"
 export DEBIRF_BUILDD="/tmp/debirf_build"
 echo "DEBBIRF_BUILDD is ${DEBIRF_BUILDD}"
 mkdir -p $DEBIRF_BUILDD
-sudo chown debirf $DEBIRF_BUILDD
 
 echo "build dir"
 ls -la $DEBBIRF_BUILDD
 
 echo "--> Building image"
-sudo -u debirf sh -c "DEBIRF_BUILDD=$DEBIRF_BUILDD ./script/build"
+./script/build
 
 echo "--> Copying artifacts to output directory"
 mkdir -p out
