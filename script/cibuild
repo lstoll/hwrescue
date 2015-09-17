@@ -16,7 +16,7 @@ echo "--> Setting up working directories"
 export DEBIRF_BUILDD=$TRAVIS_BUILD_DIR/debirf_build
 export DEBIRF_OUT=$TRAVIS_BUILD_DIR/out
 mkdir -p $DEBIRF_BUILDD $DEBIRF_OUT
-sudo chown debirf $DEBIRF_BUILDD $DEBIRF_OUT
+sudo chown debirf $DEBIRF_BUILDD $DEBIRF_OUT rescue
 
 echo "--> Building image"
 sudo -u debirf ./script/build
