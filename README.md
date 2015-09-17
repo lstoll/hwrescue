@@ -22,7 +22,7 @@ A vagrant environment is provided, with the necessary tools and apt caching. Run
 
 changes on master will trigger a build, and upload artifacts. These can be retrieved from:
 
-kernel: http://cdn.lstoll.net/artifacts/hwrescue/vmlinuz
-initrd: http://cdn.lstoll.net/artifacts/hwrescue/initrd.cgz
+* kernel: http://cdn.lstoll.net/artifacts/hwrescue/vmlinuz
+* initrd: http://cdn.lstoll.net/artifacts/hwrescue/initrd.cgz
 
-iso image: http://cdn.lstoll.net/artifacts/hwrescue/image.iso
+* iso image: http://cdn.lstoll.net/artifacts/hwrescue/image.iso
