@@ -2,6 +2,12 @@
 
 set -e
 
+echo "--> Adding all ubuntu repositories"
+sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe restricted multiverse"
+sudo apt-get update > /dev/null
+
+echo "--> Installing dependencies"
 sudo apt-get install -qy debirf
 
-./script/build
+echo "--> Building image"
+sudo ./script/build
