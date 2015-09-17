@@ -45,7 +45,7 @@ if [ "$[$(date +%s) - $(stat -c %Z /var/lib/apt/periodic/update-success-stamp)]"
 fi
 
 apt-get install -y apt-cacher-ng debirf
-#curl -OL https://launchpad.net/ubuntu/+archive/primary/+files/debirf_0.35_all.deb
-#dpkg -i debirf*.deb
+curl -OL https://launchpad.net/ubuntu/+archive/primary/+files/debirf_0.35_all.deb
+dpkg -i debirf*.deb
 EOF
 end
