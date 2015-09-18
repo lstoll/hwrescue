@@ -18,9 +18,6 @@ export DEBIRF_BUILDD="/tmp/debirf_build"
 echo "DEBBIRF_BUILDD is ${DEBIRF_BUILDD}"
 mkdir -p $DEBIRF_BUILDD
 
-echo "build dir"
-ls -la $DEBBIRF_BUILDD
-
 echo "--> Building image"
 ./script/build
 
