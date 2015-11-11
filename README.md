@@ -1,6 +1,6 @@
 # Rescue Image
 
-[![Build Status](https://magnum.travis-ci.com/lstoll/hwrescue.svg?token=UhypCbZxcoMpXfTko3wu)](https://magnum.travis-ci.com/lstoll/hwrescue)
+[![Build Status](https://travis-ci.org/lstoll/hwrescue.svg?branch=master)](https://travis-ci.org/lstoll/hwrescue)
 
 This is a simple framework to build a PXE/iPXE bootable distibution containing the base essentials to interact with and repair a system. It is built using [debirf](http://cmrg.fifthhorseman.net/wiki/debirf)
 
